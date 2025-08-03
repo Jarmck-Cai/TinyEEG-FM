@@ -1,0 +1,20 @@
+# Default pretraining configuration for TinyEEG‑FM
+
+epochs: 50
+batch_size: 64          # number of windows per batch
+accumulate_grad_batches: 4  # accumulate gradients over 4 mini‑batches
+optimizer: adamw
+lr: 1e-4
+weight_decay: 0.01
+sched: cosine
+mask_ratio: 0.4
+temperature: 0.07
+precision: bf16
+grad_clip: 1.0
+wandb_project: tiny_eeg_fm
+use_sleepedf: true
+lora: false  # set true to enable LoRA
+lora_r: 8
+lora_alpha: 16
+lora_dropout: 0.05
+lora_targets: ["proj", "encoder", "head_recon"]
